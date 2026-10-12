@@ -1,0 +1,35 @@
+import tkinter as tk 
+
+def fahrenheit_to_celsius():
+     temperature_f = float(ent_temperature.get())
+     temperature_c = (temperature_f - 32) * 5 / 9
+     temperature_c = round(temperature_c, 2)
+    
+     lbl_result.config(text=f"{temperature_c} °C")
+     
+#creation de la fenetre
+window=tk.Tk()
+window.title("Convertisseur de température")
+window.resizable(width=False, height=False)
+
+# creation du cadre
+frm_entry = tk.Frame(master=window) 
+frm_entry.grid(row=0, column=0, padx=10)
+
+#creation du widget d'entre 
+ent_temperature = tk.Entry(master=frm_entry, width=10)
+ent_temperature.grid(row=0, column=0, sticky="e")
+
+#saisie de la temperature
+lbl_temp = tk.Label(master=frm_entry, text="\N{DEGREE FAHRENHEIT}")
+lbl_temp.grid(row=0, column=1, sticky="w")
+               
+#creation du bouton de convertion
+btn_convert = tk.Button(master=window, text="\N{RIGHTWARDS BLACK ARROW}",command=fahrenheit_to_celsius)
+btn_convert.grid(row=0, column=1, pady=10)
+
+#creation du widget d'ettiquette
+lbl_result = tk.Label(master=window, text="\N{DEGREE CELSIUS}")
+lbl_result.grid(row=0, column=2, padx=10)      
+                                                                
+window.mainloop()
